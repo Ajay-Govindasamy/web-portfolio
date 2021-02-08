@@ -55,7 +55,7 @@ body {
 }
 
 .titleMessage .heading .main {
-	font-size: 50px;
+	font-size: 25px;
 }
 
 .titleMessage .heading .sub {
@@ -388,9 +388,9 @@ body {
 h1 {
     color: #2f3640;
     font-family: "Playfair Display";
-    font-size:70px;
+    font-size:45px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     margin-bottom: 50px; }
  
     footer{
@@ -447,7 +447,7 @@ h1 {
     
     .footer-bottom{
         background: #000;
-        width: 100vw;
+        width: 100%;
         padding: 20px 0;
         text-align: center;
     }
