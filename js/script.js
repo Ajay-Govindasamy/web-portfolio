@@ -174,5 +174,9 @@ document.addEventListener("mousemove", function (e) {
     "left: " + e.clientX + "px; top: " + e.clientY + "px;";
 });
 
+//akhil
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-
+gtag('config', 'G-V79CYRKRW5');
