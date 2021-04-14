@@ -1,7 +1,33 @@
 $(window).on("load", function() {
 
 	$(".loader .inner").fadeOut(750, function() {
-		$(".loader").fadeOut(750);
+    $(".loader").fadeOut(750);
+    var aboutTopOffset = $("#about").offset().top;
+    var slideAnimationCompleted = false;
+    if (!slideAnimationCompleted && window.pageYOffset > aboutTopOffset - $(window).height() + 400) {
+      anime({
+        targets: ".aboutImage",
+        translateX: [-400, 0],
+        duration: 1500,
+        easing:'easeOutExpo',
+        opacity:[0,1],
+        loop:1,
+      });
+  
+      anime({
+        targets: ".lead, h1",
+        translateY: [50, 0],
+        duration: 1500,
+        easing:'easeOutExpo',
+        opacity:[0,1],
+        delay:(el,i) =>{
+          return 500 + 100 * i;
+        },
+        loop:1,
+      });
+  
+      slideAnimationCompleted = true;
+    }
   });
   
   $(".items").isotope({
@@ -53,35 +79,10 @@ $(document).ready(function () {
 var skillsTopOffset = $(".skillsSection").offset().top;
 var statsTopOffset = $(".statsSection").offset().top;
 var countUpFinished=false;
-var aboutTopOffset = $("#about").offset().top;
-var slideAnimationCompleted = false;
+
 
 $(window).scroll(function() {
 
-  if (!slideAnimationCompleted && window.pageYOffset > aboutTopOffset - $(window).height() + 400) {
-    anime({
-      targets: ".aboutImage",
-      translateX: [-400, 0],
-      duration: 1500,
-      easing:'easeOutExpo',
-      opacity:[0,1],
-      loop:1,
-    });
-
-    anime({
-      targets: ".lead, h1",
-      translateY: [50, 0],
-      duration: 1500,
-      easing:'easeOutExpo',
-      opacity:[0,1],
-      delay:(el,i) =>{
-        return 500 + 100 * i;
-      },
-      loop:1,
-    });
-
-    slideAnimationCompleted = true;
-  }
 
   if(window.pageYOffset > skillsTopOffset - $(window).height() + 200) {
 
@@ -174,9 +175,3 @@ document.addEventListener("mousemove", function (e) {
     "left: " + e.clientX + "px; top: " + e.clientY + "px;";
 });
 
-//akhil
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-V79CYRKRW5');
